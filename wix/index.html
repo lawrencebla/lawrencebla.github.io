@@ -25,14 +25,16 @@
 
 	<div class='full-width gallery'>
 		<ul class='container content-width menu'>
-			<li class='menu-item'><a>Home</a></li>
-			<li class='menu-item'><a>About Us</a></li>
-			<li class='menu-item'><a>Services</a></li>
-			<li class='menu-item'><a>Our Team</a></li>
-			<li class='menu-item'><a>Contact Us</a></li>
+			<li class='menu-item' data-ref='home'><a>Home</a></li>
+			<li class='menu-item' data-ref='about_us'><a>About Us</a></li>
+			<li class='menu-item' data-ref='services'><a>Services</a></li>
+			<li class='menu-item' data-ref='employee'><a>Our Team</a></li>
+			<li class='menu-item' data-ref='contact_us'><a>Contact Us</a></li>
 		</ul>
 		<div class='gallery-content'>
-			<img src="images/gallery/1.jpg">
+			<img src="images/gallery/1.jpg" class='selected'>
+			<img src="images/gallery/2.jpg">
+			<img src="images/gallery/3.jpg">
 		</div>
 		<div class='can-do full-width'>
 			<div class='container content-width'>
@@ -54,58 +56,49 @@
 		</div>
 	</div>
 
-	<div class='container content-width about'>
+	<div class='container content-width about' id='about_us'>
 		<div class='content-title about-title'>
 			<div>ABOUT US</div>
-			<div class='square'></div>
+			<div class='square will-mount'></div>
 		</div>
 		<p class='left about-item'>
-			I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. Feel free to drag and drop me anywhere you like on your page. I’m a great place for you to tell a story and let your users know a little more about you.
-			​<br>
-			​<br>
-			This is a great space to write long text about your company and your services. You can use this space to go into a little more detail about your company. Talk about your team and what services you provide. Tell your visitors the story of how you came up with th  e idea for your business and what makes you different from your competitors. Make your company stand out and show your visitors who you are.
+			众津医疗科技有限公司成立于2016年，是一家专注于临床研究的第三方服务公司。
 		</p>
 		<div class='action-split-line'></div>
 		<p class='right about-item'>
-			I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. Feel free to drag and drop me anywhere you like on your page. I’m a great place for you to tell a story and let your users know a little more about you.
-			​<br>
-			​<br>​
-			This is a great space to write long text about your company and your services. You can use this space to go into a little more detail about your company. Talk about your team and what services you provide.
+		公司主要服务于以医院和患者为中心的相关临床研究、学术科研支持项目，致力于为临床研究提供真实、完整、规范的数据。所有人员来自知名的医疗科技及IT企业，具备丰富的临床研究经验。
 		</p>
 	</div>
 
-	<div class='full-width services'>		
+	<div class='full-width services' id='services'>		
 		<div class='content-title services-title'>
 			<div>OUR SERVICES</div>
-			<div class='square'></div>
+			<div class='square will-mount'></div>
 		</div>
 		<div class='container content-width'>
 			<div class='left'>
-				<div class="services-item">
-					<div class="services-item-title">Routine Exams</div>
-					<div class="services-item-content">I'm a paragraph. Click here to add your own text and edit me. It's easy.</div>
+				<div class="services-item will-mount">
+					<div class="services-item-title">认证服务</div>
+					<div class="services-item-content">临床试验相关国内国际认证服务</div>
 				</div>
-				<div class="services-item">
-					<div class="services-item-title">Dental Fillings</div>
-					<div class="services-item-content">I'm a paragraph. Click here to add your own text and edit me. It's easy.</div>
-				</div>
-				<div class="services-item">
-					<div class="services-item-title">Emergency Dentistry</div>
-					<div class="services-item-content">I'm a paragraph. Click here to add your own text and edit me. It's easy.</div>
+				<div class="services-item will-mount">
+					<div class="services-item-title">平台搭建</div>
+					<div class="services-item-content">科研数据平台搭建</div>
 				</div>
 			</div>
 			<div class='right'>
-				<div class="services-item">
-					<div class="services-item-title">Dental Hygiene</div>
-					<div class="services-item-content">I'm a paragraph. Click here to add your own text and edit me. It's easy.</div>
+				<div class="services-item will-mount">
+					<div class="services-item-title">开发及运营</div>
+					<div class="services-item-content">患者随访系统的开发及运营</div>
 				</div>
-				<div class="services-item">
-					<div class="services-item-title">Dentures &amp; Veneers</div>
-					<div class="services-item-content">I'm a paragraph. Click here to add your own text and edit me. It's easy.</div>
-				</div>
-				<div class="services-item">
-					<div class="services-item-title">Teeth Whitening</div>
-					<div class="services-item-content">I'm a paragraph. Click here to add your own text and edit me. It's easy.</div>
+				<div class="services-item will-mount">
+					<div class="services-item-title">第三方稽查</div>
+					<div class="services-item-content">我们的服务内容：
+依托于专业的临床研究协调团队、系统的相关培训和与研究中心及研究者良好的关系，众津可以帮助研究中心及研究者优质高效地履行相应的职责，为研究者提供包括但不限于以下临床研究各阶段的服务：<br/>
+A: 临床研究准备阶段：研究中心可行性调研、伦理资料准备和提交、启动会准备、研究中心研究文件的建立。<br/>
+B: 执行阶段：受试者招募、受试者访视管理、研究文件管理、数据采集录入、研究产品管理、实验室样本管理、IWRS/IVRS，安全信息管理、项目财务管理。<br/>
+C: 研究中心关闭阶段：质疑解答及处理、研究产品/物资回收及管理、研究资料归档管理
+</div>
 				</div>
 			</div>
 		</div>
@@ -132,10 +125,10 @@
 		</div>
 	</div>
 
-	<div class='container content-width employee'>
+	<div class='container content-width employee' id='employee'>
 		<div class='content-title employee-title'>
 			<div>OUR DENTISTS</div>
-			<div class='square'></div>
+			<div class='square will-mount'></div>
 		</div>
 		<div class='employee-content'>
 			<div class="employee-item left">
@@ -162,59 +155,75 @@
 		</div>
 	</div>
 
-	<div class='full-width parallax'></div>
+	<div class='full-width parallax'>
+		<div class="layer">
+			<img src="./images/parallax.webp" alt="">
+		</div>
+	</div>
 
-	<div class='full-width reputation'>
+	<div class='full-width reputation' id='reputation'>
 		<div class='content-title reputation-title'>
-			<div>HAPPY CLIENTS</div>
-			<div class='square'></div>
+			<div>企业文化</div>
+			<div class='square will-mount'></div>
 		</div>
 		<div class="reputation-content container content-width">
 			<div class="reputation-item left">
-				<div style="left: 115px; width: 30px; position: absolute; transform: rotate(180deg) translateZ(0px); top: 47px; height: 30px;" class="style-iheoffrz" data-angle="180" id="comp-ihenlovc" data-reactid=".0.$SITE_ROOT.$desktop_siteRoot.$PAGES_CONTAINER.1.1.$SITE_PAGES.$cjg9_DESKTOP.1.$comp-ihemfvn1.1.$mediaiw7jkzee5/=1$mediaiw7jkzee5.1.$comp-ihenlovc"><style type="text/css">.style-iheoffrz svg {width:100%;height:100%;position:absolute;top:0;right:0;bottom:0;left:0;margin:auto;fill:#6DD2B2;fill-opacity:1;stroke:rgba(0, 0, 0, 1);stroke-width:0px;}
-.style-iheoffrz svg * {vector-effect:non-scaling-stroke;}</style><svg xmlns="http://www.w3.org/2000/svg" viewBox="8.800000190734863 9.700000762939453 81 81.30000305175781" preserveAspectRatio="xMidYMid meet" style="stroke-width: 0px;">
-    <g>
-        <path d="M8.8 91V59.9c0-27.7 10-44 31.8-50.2v17c-10.4 4.5-14.5 13.8-14.2 30.8h14.2V91H8.8z"></path>
-        <path d="M58 91V59.9c0-27.7 10-44 31.8-50.2v17c-10.4 4.5-14.5 13.8-14.2 30.8h14.2V91H58z"></path>
-    </g>
-</svg>
+				<div style='color: #6DD2B2;font-size: 32px'>人文</div>
+				<!-- <div style="left: 115px; width: 30px; position: absolute; transform: rotate(180deg) translateZ(0px); top: 47px; height: 30px;" class="style-iheoffrz" data-angle="180" id="comp-ihenlovc" data-reactid=".0.$SITE_ROOT.$desktop_siteRoot.$PAGES_CONTAINER.1.1.$SITE_PAGES.$cjg9_DESKTOP.1.$comp-ihemfvn1.1.$mediaiw7jkzee5/=1$mediaiw7jkzee5.1.$comp-ihenlovc"><style type="text/css">.style-iheoffrz svg {width:100%;height:100%;position:absolute;top:0;right:0;bottom:0;left:0;margin:auto;fill:#6DD2B2;fill-opacity:1;stroke:rgba(0, 0, 0, 1);stroke-width:0px;}
+			.style-iheoffrz svg * {vector-effect:non-scaling-stroke;}</style><svg xmlns="http://www.w3.org/2000/svg" viewBox="8.800000190734863 9.700000762939453 81 81.30000305175781" preserveAspectRatio="xMidYMid meet" style="stroke-width: 0px;">
+			    <g>
+			        <path d="M8.8 91V59.9c0-27.7 10-44 31.8-50.2v17c-10.4 4.5-14.5 13.8-14.2 30.8h14.2V91H8.8z"></path>
+			        <path d="M58 91V59.9c0-27.7 10-44 31.8-50.2v17c-10.4 4.5-14.5 13.8-14.2 30.8h14.2V91H58z"></path>
+			    </g>
+			</svg>
+			</div> -->
+				<div class="reputation-comment">尊重人才、鼓励创新<br/>
+德才兼备、践行责任<br/>
+专业先导、高效执行
 </div>
-				<div class="reputation-comment">“I'm a testimonial. Click to edit me and add text that says something nice about you and your services.”</div>
-				<div class="reputation-client">Danielle Hudson</div>
+				<!-- <div class="reputation-client">Danielle Hudson</div> -->
 			</div>
 			<div class="reputation-item">
 
-				<div style="left: 115px; width: 30px; position: absolute; transform: rotate(180deg) translateZ(0px); top: 47px; height: 30px;" class="style-iheoffrz" data-angle="180" id="comp-ihenlovc" data-reactid=".0.$SITE_ROOT.$desktop_siteRoot.$PAGES_CONTAINER.1.1.$SITE_PAGES.$cjg9_DESKTOP.1.$comp-ihemfvn1.1.$mediaiw7jkzee5/=1$mediaiw7jkzee5.1.$comp-ihenlovc"><style type="text/css">.style-iheoffrz svg {width:100%;height:100%;position:absolute;top:0;right:0;bottom:0;left:0;margin:auto;fill:#6DD2B2;fill-opacity:1;stroke:rgba(0, 0, 0, 1);stroke-width:0px;}
-.style-iheoffrz svg * {vector-effect:non-scaling-stroke;}</style><svg xmlns="http://www.w3.org/2000/svg" viewBox="8.800000190734863 9.700000762939453 81 81.30000305175781" preserveAspectRatio="xMidYMid meet" style="stroke-width: 0px;">
-    <g>
-        <path d="M8.8 91V59.9c0-27.7 10-44 31.8-50.2v17c-10.4 4.5-14.5 13.8-14.2 30.8h14.2V91H8.8z"></path>
-        <path d="M58 91V59.9c0-27.7 10-44 31.8-50.2v17c-10.4 4.5-14.5 13.8-14.2 30.8h14.2V91H58z"></path>
-    </g>
-</svg>
+				<div style='color: #6DD2B2;font-size: 32px'>服务</div>
+				<!-- <div style="left: 115px; width: 30px; position: absolute; transform: rotate(180deg) translateZ(0px); top: 47px; height: 30px;" class="style-iheoffrz" data-angle="180" id="comp-ihenlovc" data-reactid=".0.$SITE_ROOT.$desktop_siteRoot.$PAGES_CONTAINER.1.1.$SITE_PAGES.$cjg9_DESKTOP.1.$comp-ihemfvn1.1.$mediaiw7jkzee5/=1$mediaiw7jkzee5.1.$comp-ihenlovc"><style type="text/css">.style-iheoffrz svg {width:100%;height:100%;position:absolute;top:0;right:0;bottom:0;left:0;margin:auto;fill:#6DD2B2;fill-opacity:1;stroke:rgba(0, 0, 0, 1);stroke-width:0px;}
+				.style-iheoffrz svg * {vector-effect:non-scaling-stroke;}</style><svg xmlns="http://www.w3.org/2000/svg" viewBox="8.800000190734863 9.700000762939453 81 81.30000305175781" preserveAspectRatio="xMidYMid meet" style="stroke-width: 0px;">
+				    <g>
+				        <path d="M8.8 91V59.9c0-27.7 10-44 31.8-50.2v17c-10.4 4.5-14.5 13.8-14.2 30.8h14.2V91H8.8z"></path>
+				        <path d="M58 91V59.9c0-27.7 10-44 31.8-50.2v17c-10.4 4.5-14.5 13.8-14.2 30.8h14.2V91H58z"></path>
+				    </g>
+				</svg>
+				</div> -->
+				<div class="reputation-comment">专业优质的服务团队<br/>
+谦虚谨慎的服务态度<br/>
+洞察敏锐的服务意识
 </div>
-				<div class="reputation-comment">“I'm a testimonial. Click to edit me and add text that says something nice about you and your services.”</div>
-				<div class="reputation-client">Philip Cruz</div>
+				<!-- <div class="reputation-client">Philip Cruz</div> -->
 			</div>
 			<div class="reputation-item right">
 
-				<div style="left: 115px; width: 30px; position: absolute; transform: rotate(180deg) translateZ(0px); top: 47px; height: 30px;" class="style-iheoffrz" data-angle="180" id="comp-ihenlovc" data-reactid=".0.$SITE_ROOT.$desktop_siteRoot.$PAGES_CONTAINER.1.1.$SITE_PAGES.$cjg9_DESKTOP.1.$comp-ihemfvn1.1.$mediaiw7jkzee5/=1$mediaiw7jkzee5.1.$comp-ihenlovc"><style type="text/css">.style-iheoffrz svg {width:100%;height:100%;position:absolute;top:0;right:0;bottom:0;left:0;margin:auto;fill:#6DD2B2;fill-opacity:1;stroke:rgba(0, 0, 0, 1);stroke-width:0px;}
-.style-iheoffrz svg * {vector-effect:non-scaling-stroke;}</style><svg xmlns="http://www.w3.org/2000/svg" viewBox="8.800000190734863 9.700000762939453 81 81.30000305175781" preserveAspectRatio="xMidYMid meet" style="stroke-width: 0px;">
-    <g>
-        <path d="M8.8 91V59.9c0-27.7 10-44 31.8-50.2v17c-10.4 4.5-14.5 13.8-14.2 30.8h14.2V91H8.8z"></path>
-        <path d="M58 91V59.9c0-27.7 10-44 31.8-50.2v17c-10.4 4.5-14.5 13.8-14.2 30.8h14.2V91H58z"></path>
-    </g>
-</svg>
+				<div style='color: #6DD2B2;font-size: 32px'>追求</div>
+				<!-- <div style="left: 115px; width: 30px; position: absolute; transform: rotate(180deg) translateZ(0px); top: 47px; height: 30px;" class="style-iheoffrz" data-angle="180" id="comp-ihenlovc" data-reactid=".0.$SITE_ROOT.$desktop_siteRoot.$PAGES_CONTAINER.1.1.$SITE_PAGES.$cjg9_DESKTOP.1.$comp-ihemfvn1.1.$mediaiw7jkzee5/=1$mediaiw7jkzee5.1.$comp-ihenlovc"><style type="text/css">.style-iheoffrz svg {width:100%;height:100%;position:absolute;top:0;right:0;bottom:0;left:0;margin:auto;fill:#6DD2B2;fill-opacity:1;stroke:rgba(0, 0, 0, 1);stroke-width:0px;}
+				.style-iheoffrz svg * {vector-effect:non-scaling-stroke;}</style><svg xmlns="http://www.w3.org/2000/svg" viewBox="8.800000190734863 9.700000762939453 81 81.30000305175781" preserveAspectRatio="xMidYMid meet" style="stroke-width: 0px;">
+				    <g>
+				        <path d="M8.8 91V59.9c0-27.7 10-44 31.8-50.2v17c-10.4 4.5-14.5 13.8-14.2 30.8h14.2V91H8.8z"></path>
+				        <path d="M58 91V59.9c0-27.7 10-44 31.8-50.2v17c-10.4 4.5-14.5 13.8-14.2 30.8h14.2V91H58z"></path>
+				    </g>
+				</svg>
+				</div> -->
+				<div class="reputation-comment">追求数据真实、完整、可靠、可追溯<br/>
+追求客户及研究者认同最大化<br/>
+追求合作各方利益最大化
 </div>
-				<div class="reputation-comment">“I'm a testimonial. Click to edit me and add text that says something nice about you and your services.”</div>
-				<div class="reputation-client">Meghan Charles</div>
+				<!-- <div class="reputation-client">Meghan Charles</div> -->
 			</div>
 		</div>
 	</div>
 
-	<div class='container content-width contact-us'>		
+	<div class='container content-width contact-us' id='contact_us'>		
 		<div class='content-title contact-us-title'>
 			<div>CONTACT US</div>
-			<div class='square'></div>
+			<div class='square will-mount'></div>
 		</div>
 		<div class="contact-us-item left">
 			<div class="contact-us-item-title">Our Address</div>
@@ -239,5 +248,42 @@
 		<div class='riband-right'></div>
 		<div class='container riband-center'></div>
 	</div>
+
+	<ul class='scroll-tool'>
+		<li data-ref='home'>
+			<div class="circle selected">
+				<span class="container-name">Home</span>
+			</div>
+		</li>
+		<li data-ref='about_us'>
+			<div class="circle">
+				<span class="container-name">About Us</span>
+			</div>
+		</li>
+		<li data-ref='services'>
+			<div class="circle">
+				<span class="container-name">Our Services</span>
+			</div>
+		</li>
+		<li data-ref='employee'>
+			<div class="circle">
+				<span class="container-name">Our Dentists</span>
+			</div>
+		</li>
+		<li data-ref='reputation'>
+			<div class="circle">
+				<span class="container-name">Success Stories</span>
+			</div>
+		</li>
+		<li data-ref='contact_us'>
+			<div class="circle">
+				<span class="container-name">Contact Us</span>
+			</div>
+		</li>
+	</ul>
+
+	<script src='./js/libs/jquery-3.1.1.min.js'></script>
+	<script src='./js/libs/jquery.parallax.min.js'></script>
+	<script src='./js/app.js'></script>
 </body>
 </html>
