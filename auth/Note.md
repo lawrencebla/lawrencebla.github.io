@@ -9,6 +9,9 @@
 
 # Google
 
+## Web
+
 1. [创建项目](https://console.developers.google.com/projectselector/apis/library?pli=1)
 2. 创建新的凭据，```OAuth client ID```类型，选择```Web application```
+3. 将客户端ID放入```meta```
 4. 调用相关Api，见[Google登录](/google)
