@@ -1,0 +1,149 @@
+{
+    "query": {
+        "count": 1,
+        "created": "2017-05-04T09:25:31Z",
+        "lang": "en",
+        "results": {
+            "channel": {
+                "units": {
+                    "distance": "mi",
+                    "pressure": "in",
+                    "speed": "mph",
+                    "temperature": "F"
+                },
+                "title": "Yahoo! Weather - New York, NY, US",
+                "link": "http://us.rd.yahoo.com/dailynews/rss/weather/Country__Country/*https://weather.yahoo.com/country/state/city-2459115/",
+                "description": "Yahoo! Weather for New York, NY, US",
+                "language": "en-us",
+                "lastBuildDate": "Thu, 04 May 2017 05:25 AM EDT",
+                "ttl": "60",
+                "location": {
+                    "city": "New York",
+                    "country": "United States",
+                    "region": " NY"
+                },
+                "wind": {
+                    "chill": "45",
+                    "direction": "345",
+                    "speed": "7"
+                },
+                "atmosphere": {
+                    "humidity": "58",
+                    "pressure": "1022.0",
+                    "rising": "0",
+                    "visibility": "16.1"
+                },
+                "astronomy": {
+                    "sunrise": "5:51 am",
+                    "sunset": "7:55 pm"
+                },
+                "image": {
+                    "title": "Yahoo! Weather",
+                    "width": "142",
+                    "height": "18",
+                    "link": "http://weather.yahoo.com",
+                    "url": "http://l.yimg.com/a/i/brand/purplelogo//uh/us/news-wea.gif"
+                },
+                "item": {
+                    "title": "Conditions for New York, NY, US at 04:00 AM EDT",
+                    "lat": "40.71455",
+                    "long": "-74.007118",
+                    "link": "http://us.rd.yahoo.com/dailynews/rss/weather/Country__Country/*https://weather.yahoo.com/country/state/city-2459115/",
+                    "pubDate": "Thu, 04 May 2017 04:00 AM EDT",
+                    "condition": {
+                        "code": "33",
+                        "date": "Thu, 04 May 2017 04:00 AM EDT",
+                        "temp": "47",
+                        "text": "Mostly Clear"
+                    },
+                    "forecast": [
+                        {
+                            "code": "30",
+                            "date": "04 May 2017",
+                            "day": "Thu",
+                            "high": "59",
+                            "low": "48",
+                            "text": "Partly Cloudy"
+                        },
+                        {
+                            "code": "47",
+                            "date": "05 May 2017",
+                            "day": "Fri",
+                            "high": "63",
+                            "low": "52",
+                            "text": "Scattered Thunderstorms"
+                        },
+                        {
+                            "code": "39",
+                            "date": "06 May 2017",
+                            "day": "Sat",
+                            "high": "65",
+                            "low": "54",
+                            "text": "Scattered Showers"
+                        },
+                        {
+                            "code": "30",
+                            "date": "07 May 2017",
+                            "day": "Sun",
+                            "high": "61",
+                            "low": "49",
+                            "text": "Partly Cloudy"
+                        },
+                        {
+                            "code": "30",
+                            "date": "08 May 2017",
+                            "day": "Mon",
+                            "high": "56",
+                            "low": "46",
+                            "text": "Partly Cloudy"
+                        },
+                        {
+                            "code": "30",
+                            "date": "09 May 2017",
+                            "day": "Tue",
+                            "high": "57",
+                            "low": "44",
+                            "text": "Partly Cloudy"
+                        },
+                        {
+                            "code": "30",
+                            "date": "10 May 2017",
+                            "day": "Wed",
+                            "high": "62",
+                            "low": "50",
+                            "text": "Partly Cloudy"
+                        },
+                        {
+                            "code": "28",
+                            "date": "11 May 2017",
+                            "day": "Thu",
+                            "high": "66",
+                            "low": "53",
+                            "text": "Mostly Cloudy"
+                        },
+                        {
+                            "code": "28",
+                            "date": "12 May 2017",
+                            "day": "Fri",
+                            "high": "64",
+                            "low": "54",
+                            "text": "Mostly Cloudy"
+                        },
+                        {
+                            "code": "47",
+                            "date": "13 May 2017",
+                            "day": "Sat",
+                            "high": "65",
+                            "low": "57",
+                            "text": "Scattered Thunderstorms"
+                        }
+                    ],
+                    "description": "<![CDATA[<img src=\"http://l.yimg.com/a/i/us/we/52/33.gif\"/>\n<BR />\n<b>Current Conditions:</b>\n<BR />Mostly Clear\n<BR />\n<BR />\n<b>Forecast:</b>\n<BR /> Thu - Partly Cloudy. High: 59Low: 48\n<BR /> Fri - Scattered Thunderstorms. High: 63Low: 52\n<BR /> Sat - Scattered Showers. High: 65Low: 54\n<BR /> Sun - Partly Cloudy. High: 61Low: 49\n<BR /> Mon - Partly Cloudy. High: 56Low: 46\n<BR />\n<BR />\n<a href=\"http://us.rd.yahoo.com/dailynews/rss/weather/Country__Country/*https://weather.yahoo.com/country/state/city-2459115/\">Full Forecast at Yahoo! Weather</a>\n<BR />\n<BR />\n(provided by <a href=\"http://www.weather.com\" >The Weather Channel</a>)\n<BR />\n]]>",
+                    "guid": {
+                        "isPermaLink": "false"
+                    }
+                }
+            }
+        }
+    }
+}

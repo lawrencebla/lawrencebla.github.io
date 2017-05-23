@@ -6,9 +6,11 @@
 </head>
 <body>
 	<section id='container'></section>
-	<script src="bundle.js"></script>
 	<script src='../libs/babel.min.js'></script>
 	<script src='../libs/mobx.umd.js'></script>
-	<script src='app.js'></script>
+	<script src='../libs/system-production.js'></script>
+	<script>
+		SystemJS.import('./app.js')
+	</script>
 </body>
 </html>

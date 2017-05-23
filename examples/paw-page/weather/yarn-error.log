@@ -1,0 +1,32 @@
+Arguments: 
+  C:\Software\nodejs\node.exe C:\Users\sesa373259\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add --dev koa
+
+PATH: 
+  C:\Software\Python27\;C:\Software\Python27\Scripts;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\ProgramData\Oracle\Java\javapath;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\QT Lite\QTSystem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Lenovo\Fingerprint Manager Pro\;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Software\nvm;C:\Software\nodejs;C:\Software\Git\cmd;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files (x86)\Microsoft SDKs\TypeScript\1.0\;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\Software\Python27;C:\Software\Java\jdk1.7.0_80\bin;C:\Software\OpenVPN\bin;C:\Program Files (x86)\WebEx\PTools020000000;C:\Software\Heroku\bin;C:\Software\nodejs\;C:\Program Files\1E\NomadBranch\;C:\Software\nvm;C:\Software\nodejs;C:\Software\Microsoft VS Code\bin;C:\Users\sesa373259\AppData\Local\atom\bin;C:\Users\sesa373259\AppData\Roaming\npm;C:\Users\sesa373259\AppData\Local\Box\Box Edit\
+
+Yarn version: 
+  0.21.3
+
+Node version: 
+  6.9.1
+
+Platform: 
+  win32 x64
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: unable to get local issuer certificate
+      at Error (native)
+      at TLSSocket.<anonymous> (_tls_wrap.js:1062:38)
+      at emitNone (events.js:86:13)
+      at TLSSocket.emit (events.js:185:7)
+      at TLSSocket._finishInit (_tls_wrap.js:586:8)
+      at TLSWrap.ssl.onhandshakedone (_tls_wrap.js:416:38)
