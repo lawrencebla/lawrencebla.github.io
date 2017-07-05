@@ -11,6 +11,20 @@
     '+5', '+3', '+4', '+5', '+3', '+4', '+5', '5', '6', '7', '+1', '+2', '+3', '+4', '+3', '+1', '+2', '+3', '3', '4', '5', '6', '5', '4', '5', '3', '4', '5', '4', '6', '5', '4', '3', '2', '3', '2', '1', '2', '3', '4', '5', '6', '4', '6', '5', '6', '7', '+1', '+2', '+3', '+4', '+5', '+3', '+1', '+2', '+3', '+2', '+1', '+2', '7', '+1', '+2', '+3', '+2', '+1', '7', '+1', '6', '7', '+1', '1', '2', '3', '4', '3', '2', '3', '+1', '7', '+1', '6', '+1', '7', '6', '5', '4', '5', '4', '3', '4', '5', '6', '7', '+1', '6', '+1', '7', '+1', '7', '6', '7', '+1', '+2', '+1', '7', '+1', '6', '7',
     ];
     var i = 0;
+    function isPC() {
+        var userAgentInfo = navigator.userAgent;
+        var Agents = ["Android", "iPhone",
+                    "SymbianOS", "Windows Phone",
+                    "iPad", "iPod"];
+        var flag = true;
+        for (var v = 0; v < Agents.length; v++) {
+            if (userAgentInfo.indexOf(Agents[v]) > 0) {
+                flag = false;
+                break;
+            }
+        }
+        return flag;
+    }
     function play() {
       if( i >= opern.length ) {
         return;
@@ -23,8 +37,8 @@
   </script>
 </head>
   <div style='width: 150px; height: 200px;border: 1px solid';>
-    <div style='float: left; width: 75px; height: 100%; background-color: #000;' onmouseenter='play()' ontouchstart ='play()'></div>
-    <div style='float: right; width: 75px; height: 100%;' onmouseenter='play()' ontouchstart ='play()'></div>
+    <div style='float: left; width: 75px; height: 100%; background-color: #000;' onmouseenter='isPC() && play()' ontouchstart ='play()'></div>
+    <div style='float: right; width: 75px; height: 100%;' onmouseenter='isPC() && play()' ontouchstart ='play()'></div>
   </div>
   <button onClick='reset()'>reset</button>
 <body>
