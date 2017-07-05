@@ -17,12 +17,16 @@
       }
       audioCtx.play(coverNumToHz(opern[i++]));
     }
+    function reset() {
+      i = 0;
+    }
   </script>
 </head>
   <div style='width: 150px; height: 200px;border: 1px solid';>
     <div style='float: left; width: 75px; height: 100%; background-color: #000;' onmouseenter='play()'></div>
     <div style='float: right; width: 75px; height: 100%;' onmouseenter='play()'></div>
   </div>
+  <button onClick='reset()'>reset</button>
 <body>
   <script>
     const ONE_LINED_NOTES = [261.63, 293.66, 329.63, 349.23, 392.00, 440.00, 493.88];
