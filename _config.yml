@@ -3,11 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: Lawrence
 subtitle:
 description:
 keywords:
-author: John Doe
+author: Lawrence
 language:
 timezone:
 
@@ -78,4 +78,6 @@ theme: landscape
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: git
+  repo: https://github.com/lawrencebla/lawrencebla.github.io.git
+  branch: master
