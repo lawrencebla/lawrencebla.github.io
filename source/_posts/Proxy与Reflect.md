@@ -4,6 +4,9 @@ date: 2018-10-11 09:42:59
 tags:
 ---
 
+Proxy与Reflect的简介与使用场景。
+<!-- more --> 
+
 Proxy与Reflect比较相似，每个Proxy的handler接口都有一个对应的Reflect的静态方法。
 
 ## 概念
