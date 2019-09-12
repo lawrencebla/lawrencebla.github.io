@@ -20,10 +20,10 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: npm install, build, and test
+    - name: npm install, build, and deploy
       run: |
         npm install
         npm run build
         npm run deploy
       env:
-        CI: true
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
