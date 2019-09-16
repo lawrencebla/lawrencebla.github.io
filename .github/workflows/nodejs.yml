@@ -16,14 +16,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Display the GITHUB_TOKEN
-      run: echo ${{ secrets.GITHUB_TOKEN }}
-      shell: bash
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
     - name: npm install, build, and deploy
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         echo ${{ secrets.GITHUB_TOKEN }}
         npm install
@@ -31,5 +30,3 @@ jobs:
         git config --global user.email "blandys@qq.com"
         git config --global user.name "lawrencebla"
         npm run deploy
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
