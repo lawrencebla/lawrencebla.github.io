@@ -33,7 +33,7 @@ jobs:
         
         mkdir .deploy                   # Create a folder to use for teh pages branch
         cd .deploy
-        git clone --depth 1 --branch master --single-branch https://${{ GITHUB_TOKEN }}@github.com/lawrencebla/lawrencebla.github.io.git . || (git init && git remote add -t master origin https://${{ GITHUB_TOKEN }}@github.com/lawrencebla/lawrencebla.github.io.git)
+        git clone --depth 1 --branch master --single-branch https://$GITHUB_TOKEN@github.com/lawrencebla/lawrencebla.github.io.git . || (git init && git remote add -t master origin https://$GITHUB_TOKEN@github.com/lawrencebla/lawrencebla.github.io.git)
         rm -rf ./*                      # Clear old verion
         cp -r ../public/* .             # Copy over files for new version
         git add -A .          
