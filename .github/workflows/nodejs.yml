@@ -22,11 +22,21 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: npm install, build, and deploy
       env:
-        GITHUB_TOKEN: ${{ GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         echo ${{ secrets.GITHUB_TOKEN }}
         npm install
         npm run build
         git config --global user.email "blandys@qq.com"
         git config --global user.name "lawrencebla"
-        npm run deploy
+        # npm run deploy
+        
+        mkdir .deploy                   # Create a folder to use for teh pages branch
+        cd .deploy
+        git clone --depth 1 --branch master --single-branch https://${{ secrets.GITHUB_TOKEN }}@github.com/lawrencebla/lawrencebla.github.io.git . || (git init && git remote add -t master origin https://${{ secrets.GITHUB_TOKEN }}@github.com/lawrencebla/lawrencebla.github.io.git)
+        rm -rf ./*                      # Clear old verion
+        cp -r ../public/* .             # Copy over files for new version
+        git add -A .          
+        git commit -m 'Site updated'    # Make a new commit for new version
+        git branch -m master
+        git push -q -u origin master  # Push silently so we don't leak information
