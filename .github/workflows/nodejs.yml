@@ -27,7 +27,6 @@ jobs:
     - name: deploy
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      # run: sh deploy.sh
       run: |
         git config --global user.email "gh_page@law4tina.com"
         git config --global user.name "github action"
