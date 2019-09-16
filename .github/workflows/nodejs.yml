@@ -21,6 +21,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - name: npm install, build
+      env:
+        access_token: ${{ secrets.GITHUB_TOKEN }}
       run: |
         npm install
         npm run build
