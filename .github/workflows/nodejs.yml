@@ -17,7 +17,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Display the GITHUB_TOKEN
-      run: echo ${matrix.node-version}
+      run: echo ${{ matrix.node-version }}
       shell: bash
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
