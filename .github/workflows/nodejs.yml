@@ -21,12 +21,14 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - name: npm install, build
+      run: |
+        npm install
+        npm run build
+    - name: deploy
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         access_token: ${{ secrets.access_token }}
       run: |
-        npm install
-        npm run build
         git config --global user.name "lawrencebla"
         git config --global user.email "blandys@qq.com"
         sed -i "s/{access_token}/${access_token}/" _config.yml
