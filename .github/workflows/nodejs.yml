@@ -25,7 +25,12 @@ jobs:
         npm install
         npm run build
     - name: deploy
+      # env:
+      #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # run: sh deploy.sh      
+      uses: peaceiris/actions-gh-pages@v2.3.1
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: sh deploy.sh
+        ACTIONS_DEPLOY_KEY: ${{ secrets.GITHUB_TOKEN }}
+        PUBLISH_BRANCH: master
+        PUBLISH_DIR: ./public
         
