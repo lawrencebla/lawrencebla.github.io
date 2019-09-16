@@ -22,7 +22,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: npm install, build, and deploy
       run: |
-        run: echo ${secrets.GITHUB_TOKEN}
+        echo ${secrets.GITHUB_TOKEN}
         npm install
         npm run build
         git config --global user.email "blandys@qq.com"
