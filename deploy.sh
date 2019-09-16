@@ -3,7 +3,7 @@ set -o pipefail
 
 remote_repo="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
 
-git config --global user.email "blandys@qq.com"
+git config --global user.email "gh_page@law4tina.com"
 git config --global user.name "github action"
 
 mkdir .deploy
