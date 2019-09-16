@@ -24,10 +24,4 @@ jobs:
       run: |
         npm install
         npm run build
-    - name: npm deploy
-      uses: heowc/action-hexo@master
-      env:
-        EMAIL: blandys@qq.com
-        NAME: lawrencebla
-      with:
-        args: deploy
+        npm run deploy
