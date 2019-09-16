@@ -27,9 +27,5 @@ jobs:
     - name: deploy
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        access_token: ${{ secrets.access_token }}
-      run: |
-        git config --global user.name "lawrencebla"
-        git config --global user.email "blandys@qq.com"
-        sed -i "s/{access_token}/${access_token}/" _config.yml
-        npm run deploy
+      run: deploy.sh
+        
