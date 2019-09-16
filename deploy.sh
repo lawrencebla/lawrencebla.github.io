@@ -1,7 +1,7 @@
 set -e
 set -o pipefail
 
-remote_repo="https://${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+remote_repo="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
 
 git config --global user.email "blandys@qq.com"
 git config --global user.name "github action"
