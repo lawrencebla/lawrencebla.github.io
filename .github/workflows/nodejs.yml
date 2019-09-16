@@ -27,6 +27,7 @@ jobs:
     - name: npm deploy
       uses: heowc/action-hexo@master
       env:
-        NAME: github_action
+        EMAIL: blandys@qq.com
+        NAME: lawrencebla
       with:
         args: deploy
