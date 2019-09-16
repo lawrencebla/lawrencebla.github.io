@@ -1,5 +1,4 @@
 set -e
-set -o pipefail
 
 remote_repo="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
 
