@@ -79,5 +79,5 @@ theme: landscape
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:lawrencebla/lawrencebla.github.io.git
+  repo: https://{GITHUB_TOKEN}@github.com/lawrencebla/lawrencebla.github.io.git
   branch: master
