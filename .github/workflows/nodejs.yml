@@ -41,7 +41,7 @@ jobs:
 
         # git clone --depth 1 --branch master --single-branch https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git .
 
-        git remote add origin https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+        git remote add origin https://github.com/lawrencebla/lawrencebla.github.io.git
 
         git add -A .
         git commit -m 'Site updated'
