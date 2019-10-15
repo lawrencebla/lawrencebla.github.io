@@ -41,9 +41,10 @@ jobs:
         git config --global user.email "blandys@qq.com"
         git config --global user.name "lawrencebla"
 
-        git clone --depth 1 --branch master --single-branch https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git .
+        # git clone --depth 1 --branch master --single-branch https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git .
 
         # git remote add origin https://github.com/lawrencebla/lawrencebla.github.io.git
+        git remote add origin https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
 
         git add -A .
         git commit -m 'Site updated'
