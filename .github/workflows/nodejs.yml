@@ -45,5 +45,5 @@ jobs:
         git add -A .
         git commit -m 'Site updated'
         git branch -m master
-        git push -q -u origin master
+        git push -f origin master:master
         
