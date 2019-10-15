@@ -29,7 +29,7 @@ jobs:
         npm run build
     - name: deploy
       env:
-        my_github_token: ${{ my_github_token }}
+        my_github_token: ${{ secrets.my_github_token }}
       run: |
         mkdir .deploy
         cd .deploy
