@@ -31,13 +31,17 @@ jobs:
       env:
         GH_PAT: ${{ secrets.GH_PAT }}
       run: |
-        cd public
+        mkdir .deploy
+        cd .deploy
 
         git config --global user.email "gh_page@law4tina.com"
         git config --global user.name "github action"
 
         git clone --depth 1 --branch master --single-branch https://x-access-token:${GH_PAT}@github.com/${GITHUB_REPOSITORY}.git .
 
+        rm -rf ./* 
+        cp -r ../public/* .
+        
         git add -A .
         git commit -m 'Site updated'
         git branch -m master
