@@ -29,25 +29,17 @@ jobs:
         npm run build
     - name: deploy
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GH_PAT: ${{ secrets.GH_PAT }}
       run: |
-
         cd public
 
-        git init
+        git config --global user.email "gh_page@law4tina.com"
+        git config --global user.name "github action"
 
-        # git config --global user.email "gh_page@law4tina.com"
-        # git config --global user.name "github action"
-        git config --global user.email "blandys@qq.com"
-        git config --global user.name "lawrencebla"
-
-        # git clone --depth 1 --branch master --single-branch https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git .
-
-        # git remote add origin https://github.com/lawrencebla/lawrencebla.github.io.git
-        git remote add origin https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+        git clone --depth 1 --branch master --single-branch https://x-access-token:${GH_PAT}@github.com/${GITHUB_REPOSITORY}.git .
 
         git add -A .
         git commit -m 'Site updated'
-        # git branch -m master
-        git push -f origin master
+        git branch -m master
+        git push -q -u origin master
         
