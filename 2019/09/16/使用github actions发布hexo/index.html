@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="Lawrence">
 <meta property="og:description" content="使用gitHub的actions，自动构建hexo博客至github page。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-10-16T01:54:47.598Z">
+<meta property="og:updated_time" content="2019-10-16T02:16:13.337Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用github actions发布hexo">
 <meta name="twitter:description" content="使用gitHub的actions，自动构建hexo博客至github page。">
@@ -88,8 +88,8 @@
 <h2 id="添加workflows"><a href="#添加workflows" class="headerlink" title="添加workflows"></a>添加workflows</h2><p>github提供了非常多的actions实例，集成了市面上大部分的环境，开箱即用<a href="https://github.com/marketplace?type=actions" target="_blank" rel="noopener">市场</a>；与此同时，<a href="https://github.com/actions/starter-workflows" target="_blank" rel="noopener">官方</a>也提供了许多基础模板以供使用。</p>
 <ol>
 <li>hexo是基于nodejs，并且功能简单，所以选择官方的<a href="https://github.com/actions/starter-workflows/blob/master/ci/node.js.yml" target="_blank" rel="noopener">nodejs模板</a>。</li>
-<li>github actions提供<code>GITHUB_TOKEN</code>作为内置环境变量，在env中声明后可直接使用；</li>
-<li>由于hexo的deploy不支持读取环境变量，所以需要手动deploy<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.email &quot;gh_page@law4tina.com&quot;</span><br><span class="line">git config --global user.name &quot;github action&quot;</span><br><span class="line">mkdir .deploy</span><br><span class="line">cd .deploy</span><br><span class="line">git clone --depth 1 --branch master --single-branch https://x-access-token:$&#123;GITHUB_TOKEN&#125;@github.com/$&#123;GITHUB_REPOSITORY&#125;.git .</span><br><span class="line">rm -rf ./* </span><br><span class="line">cp -r ../public/* .</span><br><span class="line">git add -A .</span><br><span class="line">git commit -m &apos;Site updated&apos;</span><br><span class="line">git branch -m master</span><br><span class="line">git push -q -u origin master</span><br></pre></td></tr></table></figure>
+<li>由于github actions提供<code>GITHUB_TOKEN</code>内置环境变量，不会触发github page的build；所以<a href="https://help.github.com/en/articles/virtual-environments-for-github-actions#creating-and-using-secrets-encrypted-variables" target="_blank" rel="noopener">添加自定义token</a>；</li>
+<li>添加基于token的remote<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://x-access-token:$&#123;my_github_token&#125;@github.com/$&#123;GITHUB_REPOSITORY&#125;.git</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>详情可见<a href="https://github.com/lawrencebla/lawrencebla.github.io/blob/gh-actions-hexo/.github/workflows/nodejs.yml" target="_blank" rel="noopener">nodejs.yml文件</a>。</p>
@@ -97,7 +97,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lawrencebla.github.io/2019/09/16/使用github actions发布hexo/" data-id="ck1smhx00000e49hrt9925h4q" class="article-share-link">Share</a>
+      <a data-url="http://lawrencebla.github.io/2019/09/16/使用github actions发布hexo/" data-id="ck1sn9hgz000e5bhprxtu1hyn" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github-actions/">github actions</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
