@@ -37,7 +37,7 @@ jobs:
         git config --global user.email "gh_page@law4tina.com"
         git config --global user.name "github action"
 
-        git clone --depth 1 --branch master --single-branch https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git .
+        git clone --depth 1 --branch master --single-branch https://x-access-token:${my_github_token}@github.com/${GITHUB_REPOSITORY}.git .
 
         rm -rf ./* 
         cp -r ../public/* .
