@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>使用github actions发布hexo | Lawrence</title>
+  <title>（概览） Preparing for the Future with React Prereleases | Lawrence</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   
@@ -44,10 +44,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-使用github actions发布hexo" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-react-release-channels" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/09/16/使用github actions发布hexo/" class="article-date">
-  <time datetime="2019-09-16T18:35:05.000Z" itemprop="datePublished">2019-09-16</time>
+    <a href="/2019/11/04/react-release-channels/" class="article-date">
+  <time datetime="2019-11-04T00:00:00.000Z" itemprop="datePublished">2019-11-04</time>
 </a>
     
   </div>
@@ -58,7 +58,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      使用github actions发布hexo
+      （概览） Preparing for the Future with React Prereleases
     </h1>
   
 
@@ -66,24 +66,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>使用gitHub的actions，自动构建hexo博客至github page。<br><a id="more"></a></p>
-<p>github最近加入actions新功能，可以针对github中的仓库添加钩子，进行一系列的操作。功能覆盖比较全面，基本的CI将不在依赖于jenkins。</p>
-<h2 id="添加workflows"><a href="#添加workflows" class="headerlink" title="添加workflows"></a>添加workflows</h2><p>github提供了非常多的actions实例，集成了市面上大部分的环境，开箱即用<a href="https://github.com/marketplace?type=actions" target="_blank" rel="noopener">市场</a>；与此同时，<a href="https://github.com/actions/starter-workflows" target="_blank" rel="noopener">官方</a>也提供了许多基础模板以供使用。</p>
-<ol>
-<li>hexo是基于nodejs，并且功能简单，所以选择官方的<a href="https://github.com/actions/starter-workflows/blob/master/ci/node.js.yml" target="_blank" rel="noopener">nodejs模板</a>。</li>
-<li>由于github actions提供<code>GITHUB_TOKEN</code>内置环境变量，不会触发github page的build；所以<a href="https://help.github.com/en/articles/virtual-environments-for-github-actions#creating-and-using-secrets-encrypted-variables" target="_blank" rel="noopener">添加自定义token</a>；</li>
-<li>添加基于token的remote<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://x-access-token:$&#123;my_github_token&#125;@github.com/$&#123;GITHUB_REPOSITORY&#125;.git</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>详情可见<a href="https://github.com/lawrencebla/lawrencebla.github.io/blob/gh-actions-hexo/.github/workflows/nodejs.yml" target="_blank" rel="noopener">nodejs.yml文件</a>。</p>
+        <p>为了使第三方库开发人员更容易测试未来版本的react库，react在npm中，新添加latest, next, experimental这3个版本tag。</p>
+<ul>
+<li>latest：稳定版，所有用户使用。</li>
+<li>next：下一次release时，会加入的新特性，第三方项目可以使用这个版本作为集成测试。</li>
+<li>experimental：是一些实验性的接口，可以使用这个版本来尝试这些新功能，但是可能不会发布。</li>
+</ul>
+<p><em>现在npm中的tag有<code>latest</code>、<code>next</code>、<code>canary</code>、<code>unstable</code>、<code>alpha</code>和<code>experimental</code>。</em></p>
+<p><a href="https://reactjs.org/blog/2019/10/22/react-release-channels.html" target="_blank" rel="noopener">原文</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lawrencebla.github.io/2019/09/16/使用github actions发布hexo/" data-id="ck2l6s4bm000ha7hhy5cq6pya" class="article-share-link">Share</a>
+      <a data-url="http://lawrencebla.github.io/2019/11/04/react-release-channels/" data-id="ck2l6s4bk000ea7hhwlr73811" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github-actions/">github actions</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React-Blog/">React Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/概览/">概览</a></li></ul>
 
     </footer>
   </div>
@@ -91,19 +89,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2019/09/25/browser-inside/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          浏览器工作过程
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/09/12/docker-nginx/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/09/25/browser-inside/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">通过docker创建本地nginx环境</div>
+      <div class="article-nav-title">浏览器工作过程</div>
     </a>
   
 </nav>

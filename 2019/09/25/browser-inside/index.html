@@ -3,48 +3,11 @@
 <head>
   <meta charset="utf-8">
   
-
-  
   <title>浏览器工作过程 | Lawrence</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="浏览器架构浏览器内部有许多进程负责浏览器中不同的模块功能，如浏览器进程负责浏览器的宿主部分，渲染进程负责文档的渲染部分。进程之间通过IPC进行通信。 进程中还可能存在许多线程。浏览器进程包含UI线程，网络线程等。 具体的进程和线程在不同浏览器中，实现方式各不相同。这里以chrome为例。 chrome会为每个tab都创建一个渲染进程，保证页面生命周期与内容的隔离，还避免了被其他tab阻塞渲染的问题">
-<meta property="og:type" content="article">
-<meta property="og:title" content="浏览器工作过程">
-<meta property="og:url" content="http://lawrencebla.github.io/2019/09/25/browser-inside/index.html">
-<meta property="og:site_name" content="Lawrence">
-<meta property="og:description" content="浏览器架构浏览器内部有许多进程负责浏览器中不同的模块功能，如浏览器进程负责浏览器的宿主部分，渲染进程负责文档的渲染部分。进程之间通过IPC进行通信。 进程中还可能存在许多线程。浏览器进程包含UI线程，网络线程等。 具体的进程和线程在不同浏览器中，实现方式各不相同。这里以chrome为例。 chrome会为每个tab都创建一个渲染进程，保证页面生命周期与内容的隔离，还避免了被其他tab阻塞渲染的问题">
-<meta property="og:locale" content="default">
-<meta property="og:image" content="http://lawrencebla.github.io/2019/09/25/browser-inside/01.png">
-<meta property="og:image" content="http://lawrencebla.github.io/2019/09/25/browser-inside/02.png">
-<meta property="og:image" content="http://lawrencebla.github.io/2019/09/25/browser-inside/03.png">
-<meta property="og:image" content="http://lawrencebla.github.io/2019/09/25/browser-inside/04.png">
-<meta property="og:image" content="http://lawrencebla.github.io/2019/09/25/browser-inside/05.png">
-<meta property="og:image" content="http://lawrencebla.github.io/2019/09/25/browser-inside/06.png">
-<meta property="og:image" content="http://lawrencebla.github.io/2019/09/25/browser-inside/07.png">
-<meta property="og:image" content="http://lawrencebla.github.io/2019/09/25/browser-inside/parsing-model-overview.png">
-<meta property="og:image" content="http://lawrencebla.github.io/2019/09/25/browser-inside/08.png">
-<meta property="og:image" content="http://lawrencebla.github.io/2019/09/25/browser-inside/09.png">
-<meta property="og:image" content="http://lawrencebla.github.io/2019/09/25/browser-inside/10.png">
-<meta property="og:image" content="http://lawrencebla.github.io/2019/09/25/browser-inside/11.png">
-<meta property="og:image" content="http://lawrencebla.github.io/2019/09/25/browser-inside/12.png">
-<meta property="og:image" content="http://lawrencebla.github.io/2019/09/25/browser-inside/13.png">
-<meta property="og:image" content="http://lawrencebla.github.io/2019/09/25/browser-inside/14.png">
-<meta property="og:image" content="http://lawrencebla.github.io/2019/09/25/browser-inside/15.png">
-<meta property="og:image" content="http://lawrencebla.github.io/2019/09/25/browser-inside/16.png">
-<meta property="og:image" content="http://lawrencebla.github.io/2019/09/25/browser-inside/17.png">
-<meta property="og:image" content="http://lawrencebla.github.io/2019/09/25/browser-inside/18.png">
-<meta property="og:image" content="http://lawrencebla.github.io/2019/09/25/browser-inside/19.png">
-<meta property="og:updated_time" content="2019-10-16T02:16:13.333Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浏览器工作过程">
-<meta name="twitter:description" content="浏览器架构浏览器内部有许多进程负责浏览器中不同的模块功能，如浏览器进程负责浏览器的宿主部分，渲染进程负责文档的渲染部分。进程之间通过IPC进行通信。 进程中还可能存在许多线程。浏览器进程包含UI线程，网络线程等。 具体的进程和线程在不同浏览器中，实现方式各不相同。这里以chrome为例。 chrome会为每个tab都创建一个渲染进程，保证页面生命周期与内容的隔离，还避免了被其他tab阻塞渲染的问题">
-<meta name="twitter:image" content="http://lawrencebla.github.io/2019/09/25/browser-inside/01.png">
   
   
     <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
   <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -160,7 +123,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lawrencebla.github.io/2019/09/25/browser-inside/" data-id="ck1sn9hhk000s5bhpro6s914q" class="article-share-link">Share</a>
+      <a data-url="http://lawrencebla.github.io/2019/09/25/browser-inside/" data-id="ck2l6s4cg000va7hhvu9wmwvw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -168,6 +131,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2019/11/04/react-release-channels/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          （概览） Preparing for the Future with React Prereleases
+        
+      </div>
+    </a>
   
   
     <a href="/2019/09/16/使用github actions发布hexo/" id="article-nav-older" class="article-nav-link-wrap">
@@ -201,7 +173,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/React-Blog/" style="font-size: 10px;">React Blog</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/github-actions/" style="font-size: 10px;">github actions</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/概览/" style="font-size: 10px;">概览</a>
+      <a href="/tags/React-Blog/" style="font-size: 20px;">React Blog</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/github-actions/" style="font-size: 10px;">github actions</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/概览/" style="font-size: 20px;">概览</a>
     </div>
   </div>
 
@@ -210,7 +182,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li></ul>
     </div>
   </div>
 
@@ -221,6 +193,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/11/04/react-release-channels/">（概览） Preparing for the Future with React Prereleases</a>
+          </li>
         
           <li>
             <a href="/2019/09/25/browser-inside/">浏览器工作过程</a>
@@ -236,10 +212,6 @@
         
           <li>
             <a href="/2019/02/23/overview-is-react-translated-yet/">（概览） Is React Translated Yet? ¡Sí! Sim! はい！</a>
-          </li>
-        
-          <li>
-            <a href="/2018/10/18/线性回归/">线性回归</a>
           </li>
         
       </ul>
