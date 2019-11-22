@@ -1,6 +1,6 @@
 ---
 title: 通过docker创建本地nginx环境
-date: 2019-09-12 09:26:46
+date: 2019-09-12
 tags:
   - docker
   - nginx

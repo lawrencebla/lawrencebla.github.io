@@ -1,3 +1,10 @@
+---
+title: KV Storage
+date: 2019-11-01
+tags:
+  - new feature
+---
+
 # KV Storage
 Chrome正在试验一种称为内置模块的新功能，而我们计划推出的第一个功能是称为KV Storage的异步键/值存储模块。推出主要`KV Storage`原因是`localStorage`无法满足特定环境中，对于前端持久化存储的需求。
 <!-- more --> 
