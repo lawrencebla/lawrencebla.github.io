@@ -2,7 +2,7 @@
 title: Proxy与Reflect
 date: 2018-10-11 09:42:59
 tags:
-    -- ES6
+    - ES6
 ---
 
 Proxy与Reflect的简介与使用场景。
