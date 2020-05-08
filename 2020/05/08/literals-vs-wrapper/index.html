@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>（概览） Is React Translated Yet? ¡Sí! Sim! はい！ | Lawrence</title>
+  <title>字面量与包装对象 | Lawrence</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   
@@ -44,10 +44,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-overview-is-react-translated-yet" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-literals-vs-wrapper" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/02/23/overview-is-react-translated-yet/" class="article-date">
-  <time datetime="2019-02-23T00:00:00.000Z" itemprop="datePublished">2019-02-23</time>
+    <a href="/2020/05/08/literals-vs-wrapper/" class="article-date">
+  <time datetime="2020-05-08T00:00:00.000Z" itemprop="datePublished">2020-05-08</time>
 </a>
     
   </div>
@@ -58,7 +58,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      （概览） Is React Translated Yet? ¡Sí! Sim! はい！
+      字面量与包装对象
     </h1>
   
 
@@ -66,17 +66,38 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>喜迎React官网翻译！<br><a id="more"></a> </p>
-<p><a href="https://reactjs.org/blog/2019/02/23/is-react-translated-yet.html" target="_blank" rel="noopener">原文</a></p>
-<p>由React社区成员进行翻译，<a href="https://zh-hans.reactjs.org/" target="_blank" rel="noopener">中文网站</a>已经上线；其他语言可以点击<a href="https://reactjs.org/languages/" target="_blank" rel="noopener">这里</a>查看状态。</p>
+        <h1 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h1><p>先看3个例子<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="string">'str'</span></span><br><span class="line">a.toString = <span class="function"><span class="params">()</span> =&gt;</span> <span class="number">1</span></span><br><span class="line">a.toString() <span class="comment">// str</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> b = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'str'</span>)</span><br><span class="line">b.toString = <span class="function"><span class="params">()</span> =&gt;</span> <span class="number">1</span></span><br><span class="line">b.toString() <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> c = <span class="built_in">String</span>(<span class="string">'str'</span>)</span><br><span class="line">c.toString = <span class="function"><span class="params">()</span> =&gt;</span> <span class="number">1</span></span><br><span class="line">c.toString() <span class="comment">// str</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a> 
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>首先观察前2个例子可以很明显看到区别，第一个是字符串，第二个是字符串对象：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> a <span class="comment">// string</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> b <span class="comment">// object</span></span><br></pre></td></tr></table></figure>
+<p>那么看看在<a href="http://www.ecma-international.org/ecma-262/6.0/#sec-getv" target="_blank" rel="noopener">ECMA</a>上的描述：</p>
+<blockquote>
+<p>The abstract operation GetV is used to retrieve the value of a specific property of an ECMAScript language value. If the value is not an object, the property lookup is performed using a wrapper object appropriate for the type of the value. The operation is called with arguments V and P where V is the value and P is the property key. This abstract operation performs the following steps:</p>
+<ol>
+<li>Assert: IsPropertyKey(P) is true.</li>
+<li>Let O be ToObject(V).</li>
+<li>ReturnIfAbrupt(O).</li>
+<li>Return O.<a href="P, V">[Get]</a>.</li>
+</ol>
+</blockquote>
+<p>这里描述的比较清楚: 如果被取属性的值<strong>不是</strong><code>object</code>类型，会使用一个适合该类型的<strong>包装对象</strong>进行转换，然后对转换后的<code>O</code>进行取值，而不是对原始字面量进行操作。所以<strong>不管如何修改非对象的属性，都不会生效。</strong></p>
+<p>接下来再看看<code>c</code>的类型：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> c <span class="comment">// string</span></span><br></pre></td></tr></table></figure></p>
+<p>继续查阅<a href="http://www.ecma-international.org/ecma-262/6.0/#sec-string-constructor" target="_blank" rel="noopener">ECMA</a>文档，里面是这么描述String调用的：</p>
+<blockquote>
+<p>The String constructor is the %String% intrinsic object and the initial value of the String property of the global object. When called as a constructor it creates and initializes a new String object. When String is called as a function rather than as a constructor, it performs a type conversion.</p>
+</blockquote>
+<p>也就是说，只做一个<a href="http://www.ecma-international.org/ecma-262/6.0/#sec-tostring" target="_blank" rel="noopener">ToString</a>的转换，如果传入的是字符传，会直接返回传入的参数。所以得到的结果还是string类型，获取属性时，也就不会生效。</p>
+<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>总结一点就是，不要轻易修改某个基本类型的属性，因为会不生效；如果需要对所有同类型的值加上/修改属性，可以在对应的<strong>包装对象</strong>原型链上修改，因为基本类型取属性都会先转换撑<strong>包装对象</strong>。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lawrencebla.github.io/2019/02/23/overview-is-react-translated-yet/" data-id="ck9xwvgja000n9bhh1bg8gwgp" class="article-share-link">Share</a>
+      <a data-url="http://lawrencebla.github.io/2020/05/08/literals-vs-wrapper/" data-id="ck9xwvgj4000i9bhh7fj98ndm" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React-Blog/">React Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/概览/">概览</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS-Core/">JS Core</a></li></ul>
 
     </footer>
   </div>
@@ -84,19 +105,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2019/09/12/docker-nginx/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/05/08/svg-border/a/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          通过docker创建本地nginx环境
+          (no title)
         
       </div>
     </a>
   
   
-    <a href="/2018/10/18/线性回归/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/03/14/svg-border/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">线性回归</div>
+      <div class="article-nav-title">svg：使用stroke-dasharray和stroke-dashoffset实现动态边框</div>
     </a>
   
 </nav>
