@@ -1,0 +1,16 @@
+性能对存留的影响
+好的性能提升存留率
+Pinterest 的搜索引擎流量和注册人数增长 15%，得益于其感知等待时间减少 40%。(https://medium.com/pinterest-engineering/driving-user-growth-with-performance-improvements-cfc50dafadd7)
+COOK 的转化率提升 7%、跳出率下降 7%，且每次会话浏览页数增加 10%，得益于其页面平均加载时间减少 850 毫秒。(https://www.nccgroup.trust/uk/about-us/resources/cook-real-user-monitoring-case-study/?style=Website+Performance&resources=Case+Studies)
+
+差的性能损失用户
+BBC 发现其网站的加载时间每增加一秒，便会多失去 10% 的用户。(https://www.creativebloq.com/features/how-the-bbc-builds-websites-that-scale)
+DoubleClick by Google 发现，如果页面加载时间超过 3 秒，53% 的移动网站访问活动将遭到抛弃。(https://www.doubleclickbygoogle.com/articles/mobile-speed-matters/)
+
+性能对转化的影响
+对于 Mobify，首页加载时间每减少 100 毫秒，基于会话的转化率 增加 1.11%，年均收入增长 近 380,000 美元。 此外，结账页面加载时间减少 100 毫秒，基于会话的转化率 增加 1.55%，进而使年均收入增长 近 530,000 美元。
+DoubleClick 发现网站加载时间在 5 秒内的发布商比网站加载时间在 19 秒内的发布商的广告收入多一倍。
+AutoAnything 的页面加载时间减少一半后，其销售额提升 12-13%。
+
+https://developers.google.com/web/fundamentals/performance/why-performance-matters
+https://mp.weixin.qq.com/s?__biz=MjM5MTA1MjAxMQ==&mid=2651236933&idx=1&sn=81b9a6b2e4ae6073d1c9235cecf2626c&chksm=bd4973c18a3efad73cebabc6d11159783887738ad27b532c3e1ebfbc15aba426803efb2e9e51&mpshare=1&scene=1&srcid=0530LSAC9aqoUECd8nWwD16B&sharer_sharetime=1590827302983&sharer_shareid=b652e4a917472d4393ecec46db3d31f3&key=b62499e58a6e381a56d085ed7d24e08eb33435e750a82e5753d352b6676ee748a7df9ddc0a4f47d009303706e56f9852ece18368d2f56f9020252fb4fbfc94301d80bff3eb8dfbb226afc58112bea53e&ascene=1&uin=MTIyOTYyMjgyMA%3D%3D&devicetype=Windows+10+x64&version=62090070&lang=zh_CN&exportkey=AaxI88nxZqN7GEOTc41VLBg%3D&pass_ticket=aeXDe47k7KMU%2B8WIfsLvFDBXpnv7EscrpffAooJFSEsgjH%2Fr%2Bn1hKgOlM5LRRgtb
