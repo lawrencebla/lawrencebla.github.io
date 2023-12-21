@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2020 | Lawrence</title>
+  <title>记录一次数据库迁移及binlog同步 | Lawrence</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   
@@ -44,78 +44,70 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/05/08/literals-vs-wrapper/" class="archive-article-date">
-  <time datetime="2020-05-08T00:00:00.000Z" itemprop="datePublished">May 8</time>
+        <section id="main"><article id="post-记录一次数据库迁移及binlog同步" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/12/21/记录一次数据库迁移及binlog同步/" class="article-date">
+  <time datetime="2023-12-21T17:36:23.000Z" itemprop="datePublished">2023-12-21</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/08/literals-vs-wrapper/">字面量与包装对象</a>
+    <h1 class="article-title" itemprop="name">
+      记录一次数据库迁移及binlog同步
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/03/14/svg-border/" class="archive-article-date">
-  <time datetime="2020-03-14T00:00:00.000Z" itemprop="datePublished">Mar 14</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/14/svg-border/">svg：使用stroke-dasharray和stroke-dashoffset实现动态边框</a>
-    </h1>
-  
+        <p>近期手上相关项目由于一些不可抗力原因，需要做数据库迁移，记录遇到的一些问题及binlog同步。<br><a id="more"></a> </p>
+<h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><p>数据库迁移首先考虑新旧数据库同步问题，我们当前旧数据库采用MHA架构一主一从方案；在新数据库中采用同样的配置，通过binlog进行新旧数据的同步。</p>
+<h3 id="binlog"><a href="#binlog" class="headerlink" title="binlog"></a>binlog</h3><p>binlog是数据库中的一种日志，记录了执行语句的逻辑操作（如DML和DDL），主要用于数据恢复和数据同步。</p>
+<h4 id="binlog配置"><a href="#binlog配置" class="headerlink" title="binlog配置"></a>binlog配置</h4><p>binlog有三种格式：statement、row和mixed。</p>
+<ul>
+<li>statement：仅记录操作语句，不记录最终的值；当用到触发器，函数时，不能保证再次运行时的一致性</li>
+<li>row：记录每行的数据改动而非操作语句；当一条操作语句修改多条记录时，日志数据量较大</li>
+<li>mixed：DML并且主从可能会不一致时，通过row格式记录；否则通过statement格式记录</li>
+</ul>
+<h4 id="日志写入"><a href="#日志写入" class="headerlink" title="日志写入"></a>日志写入</h4><p>binlog在记录事务过程中，会先把日志写入binlog cache，当事务提交时，才会将binlog cache记录到binlog文件中，保证事务的一致性。</p>
+<p>同时binlog记录日志时，会先将日志记录在内存中，再根据配置规则，写入硬盘；配置的规则可以通过<code>sync_binlog</code>修改。将其值设置为整数<strong>N</strong>，表示每<strong>N</strong>个事务写入一次硬盘；设置为<strong>0</strong>时，将有文件系统自己判定写入时机（需注意<strong>N</strong>不要设置为太大，避免宕机时的数据丢失；也不要设置太小，避免影响性能）。</p>
+<h4 id="日志同步"><a href="#日志同步" class="headerlink" title="日志同步"></a>日志同步</h4><p>当有了binlog日志，即可通过日志在新库中恢复数据。市面上有了一些成熟的开源库，利用binlog同步到不止mysql以外的其他库中，如oracl、redis、ElasticSearch等。</p>
+<p>目前新库没有项目写入数据，所以可以暂不考虑<strong>索引</strong>、<strong>同时更新</strong>、<strong>循环更新</strong>等复杂问题。</p>
+<h5 id="max-allowed-packet"><a href="#max-allowed-packet" class="headerlink" title="max_allowed_packet"></a>max_allowed_packet</h5><p><code>max_allowed_packet</code>限制了数据库导入一个数据包的大小；而有些数据操作在binlog中记录的单条sql大小会比较大，新库的默认<code>max_allowed_packet</code>值会导致同步失败，需要调整<code>max_allowed_packet</code>为合适大小。</p>
+<h2 id="项目"><a href="#项目" class="headerlink" title="项目"></a>项目</h2><p>项目在迁移数据库前，需要停止对数据库的写入、或数据库设置只读 或 进行数据库双写的改造，避免迁移时造成的数据不一致问题。</p>
+<p>由于我们只迁移旧数据库集群中部分数据库，对数据库集群进行只读操作会影响其他业务，对此我们采用的在业务低峰时，对应用进行停服切换。</p>
+<p>对各个项目停服后通过验证每个表的count，验证数据的一致性后，再进行切换配置并重启各个项目。</p>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/03/04/location_search_and_hash/" class="archive-article-date">
-  <time datetime="2020-03-04T00:00:00.000Z" itemprop="datePublished">Mar 4</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/04/location_search_and_hash/">location的search(?)与hash(#)顺序</a>
-    </h1>
-  
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lawrencebla.github.io/2023/12/21/记录一次数据库迁移及binlog同步/" data-id="clqf0eap60012cboyw1cwxf4k" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据库/">数据库</a></li></ul>
 
-    </header>
+    </footer>
   </div>
-</article>
+  
+    
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2020/05/08/literals-vs-wrapper/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">字面量与包装对象</div>
+    </a>
   
+</nav>
 
+  
+</article>
 
 </section>
         
