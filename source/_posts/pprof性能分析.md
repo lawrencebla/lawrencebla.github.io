@@ -24,7 +24,7 @@ tags:
 官方和社区提供了多种不同的采样方式，介绍主要使用的几种。
 
 ### runtime/pprof
-代码调用```runtime/pprof```库内置方法生成和写入采样文件，获取一次性执行程序的性能。
+代码调用**runtime/pprof**库内置方法生成和写入采样文件，获取一次性执行程序的性能。
 * 获取CPU数据
 ```go
 import _ "runtime/pprof"
@@ -65,10 +65,10 @@ func main() {
 通过端口启动后，可以直接通过url访问
 {% asset_img 01.png %}
 
-也可通过```go tool pprof```或其他第三方工具下载文件并本地解析
+也可通过**go tool pprof**或其他第三方工具下载文件并本地解析
 
 ### go test -bench
-如果已经写好性能测试，可以直接通过```go test -bench```命令生成采样文件
+如果已经写好性能测试，可以直接通过**go test -bench**命令生成采样文件
 ```go
 go test -bench . -benchmem -cpu profile prof.cpu
 ```
@@ -87,10 +87,10 @@ go tool pprof <pprof_url>
 ```
 
 ### 内存分析
-通过/pprof/heap进入内存分析交互，执行```top N```打印内存占用最多函数
+通过/pprof/heap进入内存分析交互，执行**top N**打印内存占用最多函数
 {% asset_img 02.png %}
 
-通过```list```命令查看具体出错位置
+通过**list**命令查看具体出错位置
 {% asset_img 03.png %}
 
 ### 网页访问
